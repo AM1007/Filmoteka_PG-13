@@ -73,13 +73,14 @@ export function modalListener() {
 }
 
 const modalPoster = document.querySelector(".modal__poster")
-// console.log(modalPoster)
+const modalTitle = document.querySelector(".modal__title")
 
 function renderMovie(response) {
     console.log(response)
+    const urlImgMovie = 'https://image.tmdb.org/t/p/w300'
     const { title, vote_average, vote_count, poster_path, popularity, original_title, overview } = response
 
-    console.log(poster_path)
+    // console.log(poster_path)
 
     // const allGenres = genres.map((genre) => genre.name).join(", ")
     // console.log(allGenres)
@@ -89,7 +90,8 @@ function renderMovie(response) {
       <button type="button" class="modal__close"></button>
       <div class="modal__content">
         <div class="modal__media">
-        <img src="" alt="Movie poster" class="modal__poster" />
+        ${(modalTitle.textContent = `${title}`)}
+        ${(modalPoster.src = `${urlImgMovie}${poster_path}`)}
         </div>
         <div class="modal__details">
           <h2 class="modal__title">${title}</h2>
