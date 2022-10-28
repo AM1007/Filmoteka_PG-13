@@ -73,6 +73,7 @@ export function modalListener() {
 }
 
 const modalPoster = document.querySelector(".modal__poster")
+// console.log(modalPoster)
 
 function renderMovie(response) {
     console.log(response)
@@ -83,7 +84,7 @@ function renderMovie(response) {
     // const allGenres = genres.map((genre) => genre.name).join(", ")
     // console.log(allGenres)
 
-    const markupMovie = /*html*/ `<div class="overlay">
+    return /*html*/ `<div class="overlay">
     <div class="modal">
       <button type="button" class="modal__close"></button>
       <div class="modal__content">
@@ -96,9 +97,9 @@ function renderMovie(response) {
             <li class="modal__votes">
               <span class="data">Vote / Votes</span>
               <div class="value value__votes">
-                <div class="rating">9.5</div>
+                <div class="rating">${vote_average}</div>
                 <div class="data separator">/</div>
-                <div class="rating rating__votes">9001</div>
+                <div class="rating rating__votes">${vote_count}</div>
               </div>
             </li>
             <li class="modal__popularity">
@@ -116,15 +117,7 @@ function renderMovie(response) {
           </ul>
           <div class="modal__description">
             <p>ABOUT</p>
-            <p class="modal__text">
-              Little is known about the majority of the Emperor's life; of who he
-              was and what he did before he emerged as the great Emperor of
-              Mankind, only the Emperor himself remembers. The man who would later
-              become known as the Emperor started out humbly - peacefully serving
-              as sixth President of Ukraine. But one cold February morning
-              everything changed... This is a story of his ascension to Godhood.
-              Ave Imperator, morituri te salutant!
-            </p>
+            <p class="modal__text">${overview}</p>
           </div>
           <div class="modal__buttons">
             <button type="button" class="button modal__watch">
@@ -142,7 +135,7 @@ function renderMovie(response) {
     </div>
   </div>
   `
-    return (modalPoster.textContent = `https://image.tmdb.org/t/p/w300/3zXceNTtyj5FLjwQXuPvLYK5YYL.jpg`)
+    // modalPoster.src.textContent = `https://image.tmdb.org/t/p/w300/3zXceNTtyj5FLjwQXuPvLYK5YYL.jpg`
 }
 // <span class="value">${allGenres}</span>
 
