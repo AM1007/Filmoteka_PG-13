@@ -1,5 +1,6 @@
 import TmDbApi from "./services/fetchApi";
 import genres from "./services/genres";
+import { modalListener } from "./modal";
 const Api = new TmDbApi();
 
 export const topMovieList = {
@@ -71,6 +72,7 @@ export const topMovieList = {
       .join("");
     movieList.innerHTML = "";
     movieList.insertAdjacentHTML("beforeend", moviesMarkUp);
+    modalListener()
   },
   calculatingGenres(genre_ids) {
     const sortGenres = genres
